@@ -1,4 +1,4 @@
-# groceries-exercise
+# groceries.py
 
 products = [
     {
@@ -32,3 +32,15 @@ products = [
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
 # print(products)
+
+print("------------")
+print("THERE ARE" + " " + str(len(products)) + " " + "PRODUCTS:")
+print("------------")
+
+def product_name(product):
+    return product.get("name")
+
+products.sort(key=product_name)
+
+for p in products:
+    print(" + " + p["name"] + " " + "(" +  "$" + str(p["price"]) + ")")
