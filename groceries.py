@@ -33,18 +33,23 @@ products = [
 
 # print(products)
 
+# PRODUCTS (Part 1)
+
 print("------------")
 print("THERE ARE " + str(len(products)) + " PRODUCTS:")
 print("------------")
 
 def product_name(product):
-    return product.get("name")
+   return product.get("name")
 
 products.sort(key=product_name)
 
 for p in products:
-    # price_usd = " (${0:.2f})".format(p(["price"]))
-    print(" + " + p["name"] + " ($" + str(p["price"]) + ")")
+    price_usd = p["price"] # "$4.99"
+    price_usd = "(${0:.2f})".format(p["price"])
+    print(p["name"] + " " + str(price_usd))
+
+# DEPARTMENTS (Part 2)
 
 x = ("department")
 
@@ -71,17 +76,18 @@ department_set = list(department_set)
 
 department_set.sort()
 
-if department_dict.get(department) is 1:
-    department_dict.get(department) + " product"
+# if department_dict.get("department") is 1:
+    # department_dict.get("department") + " product"
     
-else:
-    department_dict.get(department) = department_dict(department) + " products"
+# else:
+    # department_dict.get(department) = department_dict(department) + " products"
 
 for p in department_set:
-   # if department_dict.get(department) is 1:
-    #    department_dict.get(department) + " " + "product"
-    
-    # else:
-      #  department_dict.get(department) = department_dict.get(department) + " " + "products"
-    print(" + " + p.title() + " " + "(" + str(department_dict.get(p)) + " " + "product)")
-
+    # breakpoint()
+    matching_products_count = department_dict.get(p) 
+    if matching_products_count is 1:
+        label = "product"
+        
+    else:
+        label = "products"
+    print(p.title() + " " + "(" + str(matching_products_count) + " " + label + ")")
